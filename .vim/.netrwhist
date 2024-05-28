@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/oem/Documents/sphinx-doc/zbxt/source'
+let g:netrw_dirhist_6='/home/oem/Documents/sphinx-doc/zbxt'
+let g:netrw_dirhist_5='/home/oem/Documents/sphinx-doc'
+let g:netrw_dirhist_4='/home/oem/Documents/sphinx-doc/JINZHOU'
+let g:netrw_dirhist_3='/home/oem/Documents/sphinx-doc/JINZHOU/docs'
+let g:netrw_dirhist_2='/home/oem/Documents/sphinx-doc/JINZHOU/docs/source'
+let g:netrw_dirhist_1='/home/oem/Documents/CPlusPlusThings-master/basic_content/sizeof'
+let g:netrw_dirhist_0='/home/oem/Documents/CPlusPlusThings-master/codingStyleIdioms/2_enumclass'
+let g:netrw_dirhist_9='/home/oem/Documents/CPlusPlusThings-master/codingStyleIdioms'
+let g:netrw_dirhist_8='/home/oem/Documents/CPlusPlusThings-master/learn_class/modern_cpp_30/compilercompute'
