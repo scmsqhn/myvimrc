@@ -1,4 +1,6 @@
+""syntax off
 syntax on
+""highlight clear SpellBad
 set expandtab
 set background=dark
 ""colorscheme dark
@@ -8,7 +10,6 @@ filetype on
 au BufRead,BufNewFile *.sv set filetype=systemverilog
 au BufRead,BufNewFile *.v  set filetype=verilog
 
-""set spell
 set history=200
 
 set wildmode=longest,list
@@ -29,6 +30,11 @@ set ts=2
 set expandtab
 
 set shiftwidth=4
+
+" 启用 Syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_cpp_checkers = ['gcc', 'clang']
+
 autocmd FileType make set noexpandtab
 
 " On :LS!, <bang> evaluates to '!', and '!0' becomes 1
@@ -101,10 +107,25 @@ autocmd FileType c      autocmd BufWritePost <buffer> call system("ctags -R")
 autocmd FileType cpp    autocmd BufWritePost <buffer> call system("ctags -R")
 source ~/.vim/user/alias.vim
 
+" ALE settings
+let g:ale_linters = {'cpp':['clang'],}
+let g:ale_fixers = {'cpp': ['clang-format'],}
+let g:ale_cpp_clang_executable = 'clang++'
+
+" Clang-Format settings
+let g:clang_format#style_options = {"BasedOnStyle":"Google",}
+
+" Gutentags settings
+let g:gutentags_project_root = ['.git', '.hg', '.svn', '.project']
+
+nmap <leader>cf :ClangFormat<CR>
 call plug#begin()
 
 " List your plugins here
 "
+Plug 'vim-syntastic/syntastic'
+Plug 'rhysd/vim-clang-format'
+Plug 'vim-scripts/bash-support.vim'
 Plug 'ekalinin/Dockerfile.vim'
 ""Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-unimpaired'
@@ -166,6 +187,10 @@ Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 " On-demand loading: loaded when a file with a specific file type is opened
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
+"" cpp grammer auto check
+Plug 'vim-syntastic/syntastic'
+
+
 " Unmanaged plugin (manually installed and updated)
 ""Plug '/home/oem/.vim/pack/tpope/start/unimpaired/plugin'
 
@@ -179,3 +204,5 @@ call plug#end()
 "
 filetype plugin on
 set number   ""optionally add this to show line numbers in vim
+
+set nospell
